@@ -1,4 +1,4 @@
-#Jeu du Pendu
+# Jeu du Pendu
 
 **Le jeu des pétales tombants**
 -> Variante du célèbre jeu du pendu.
