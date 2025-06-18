@@ -1,0 +1,196 @@
+body {
+  background-image: url(https://img.freepik.com/vecteurs-premium/art-mural-botanique-mode-lavande-modele-concept-pour-cartes-voeux-banniere-medias-sociaux_715072-1028.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: 'Borel', cursive;
+  margin-bottom: 80px;
+  color: #708a5f;
+  font-size: 40px;
+}
+
+.game-board {
+  width: 750px;
+  display: grid;
+  grid-template-rows: repeat(3, 200px);
+  gap: 30px;
+}
+
+.flower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.center {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #a75aa7;
+  border: 1px solid #800080;
+  box-shadow: 2px 2px 2px #800080;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 150px;
+  height: 55px;
+  margin-left: 150px;
+  margin-top: 30px;
+  background-color: #c9bada;
+  box-shadow: 2px 2px 2px #800080;
+  border-radius: 50%;
+  border: 1px solid #800080;
+  transform-origin: 0% 20%;
+}
+
+.petal:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.petal:nth-child(2) {
+  transform: rotate(30deg);
+}
+
+.petal:nth-child(3) {
+  transform: rotate(60deg);
+}
+
+.petal:nth-child(4) {
+  transform: rotate(90deg);
+}
+
+.petal:nth-child(5) {
+  transform: rotate(120deg);
+}
+
+.petal:nth-child(6) {
+  transform: rotate(150deg);
+}
+
+.petal:nth-child(7) {
+  transform: rotate(180deg);
+}
+
+.petal:nth-child(8) {
+  transform: rotate(210deg);
+}
+
+.petal:nth-child(9) {
+  transform: rotate(240deg);
+}
+
+.petal:nth-child(10) {
+  transform: rotate(270deg);
+}
+
+.petal:nth-child(11) {
+  transform: rotate(300deg);
+}
+
+.petal:nth-child(12) {
+  transform: rotate(330deg);
+}
+
+.petal.fall {
+  transform: translateY(200px) rotate(720deg);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.word-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  color: #a75aa7;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 52px;
+}
+
+span {
+  font-family: 'Borel', cursive;
+  text-transform: none;
+  font-size: 24px;
+}
+
+#word {
+  font-family: 'Borel', cursive;
+  color: #839c6b;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d1bedc;
+  border: 2px solid #b5a0be;
+  box-shadow: 2px 2px 2px #b5a0be;
+  border-radius: 6px;
+}
+
+.alphabet {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #b5a0be;
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px #a75aa7;
+  color: #800080;
+  cursor: pointer;
+}
+
+.letter:hover {
+  color: #b5a0be;
+  border: 2px solid #9d87a7;
+  box-shadow: 2px 2px 2px #9d87a7;
+}
+
+button {
+  max-width: fit-content;
+  height: 50px;
+  overflow: hidden;
+  margin-top: 25px;
+  font-family: 'Borel', cursive;
+  border: 2px solid #b5a0be;
+  border-radius: 6px;
+  color: #a75aa7;
+  font-weight: bold;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  font-style: italic;
+  color: #d1bedc;
+  background-color: #a75aa7;
+  border-color: #a75aa7;
+}
