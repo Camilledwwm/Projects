@@ -1,8 +1,5 @@
 // Afficher la map
-let map = document.getElementById('map');
-let popup = L.popup();
-
-map = L.map('map', {
+let map = L.map('map', {
   center: [51.505, -0.09],
   zoom: 7
 });
@@ -12,16 +9,37 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution:
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-console.log(map);
 
-// Afficher une popup avec latitude et longitude au click sur la map
+// Fonction au clic sur la carte
 function onMapClick() {
   map.addEventListener('click', (event) => {
-    let lat = event.latlng.lat.toFixed(6); // 6 décimales
-    let lng = event.latlng.lng.toFixed(6); // 6 décimales
-    popup.setLatLng(event.latlng);
-    popup.setContent(`latitude ${lat} et longitude ${lng}`);
-    popup.openOn(map);
+    let lat = event.latlng.lat.toFixed(6);
+    let lng = event.latlng.lng.toFixed(6);
+
+    // Obtenir la ville avec Nominatim
+    fetch(
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let ville = data.address.city || data.address.municipality;
+        console.log('Ville :', ville);
+
+        // Retourner la requête météo pour chaîner les .then
+        return fetch(`https://goweather.xyz/weather/${ville}`);
+      })
+      .then((response) => response.json())
+      .then((meteoData) => {
+        let meteo = {
+          temperature: meteoData.temperature,
+          wind: meteoData.wind,
+          description: meteoData.description
+        };
+        console.log('Météo :', meteo);
+      })
+      .catch((error) => {
+        console.error('Erreur :', error);
+      });
   });
 }
 
